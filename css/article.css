@@ -1,0 +1,11 @@
+body{
+	background-color: #000000;
+	color: #ffffff;
+	font-family: Times New Roman;
+	font-size: 15pt;
+}
+
+pre.terminal{
+	font-family: Terminal;
+	font-size: 15pt;
+}
