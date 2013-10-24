@@ -9,3 +9,24 @@ pre.terminal{
 	font-family: Terminal;
 	font-size: 15pt;
 }
+
+a{
+	background-color: #FFE4C4;
+}
+
+table{
+	font-family: Verdana;
+	border-collapse:collapse;
+}
+table tr,th,td{
+	padding:15px;
+}
+table tr.title{
+	background-color:#8B4513;
+}
+table tr.a{
+	background-color:#333333;
+}
+table tr.b{
+	background-color:#222222;
+}

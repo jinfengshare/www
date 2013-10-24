@@ -1,0 +1,29 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../css/article.css" type="text/css"/>
+</head>
+
+<body>
+<h1>gdbserver is small and running on the target, while gdb on host</h1>
+<pre>
+<hr>
+target&gt;gdbserver /dev/com1 niceprint "hello world"
+target&gt;gdbserver host:2345 niceprint "hello world"
+<hr>
+host&gt;gdb niceprint
+(gdb) target remote myhost:2345
+0x00... in func() from /lib64/ld-linux-x86_64.so.2
+(gdb) b main
+(gdb) continue
+<hr>
+</pre>
+<p>
+GDB RSP(Remote Serial Protocol) points that the target must act as a server.
+<br>
+If there is a new arch-target and you want debug program running on it with gdb, you should port gdb server to it.
+<br>
+RSP is a high level protocol which based on TCP|UDP|Serial|Other, which based on Operation System! So it can debug any remote target.
+</p>
+<a href="http://www.embecosm.com/appnotes/ean4/embecosm-howto-rsp-server-ean4-issue-2.html">RSP Implementation Example</a>
+</body>
+</html>
