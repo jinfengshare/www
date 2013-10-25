@@ -1,0 +1,22 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../css/article.css" type="text/css"/>
+</head>
+
+<body>
+<h1>Jlink Commander</h1>
+<hr>
+
+<h3>Light on LED on Tiny6410 with JLink-Commander</h3>
+<p>
+below is GPKCON0 and GPKDAT address, GPK controls 16 GPIO, more see reference.
+</P>
+<pre>
+# you should first set output mode for GPK4-7
+
+J-Link&gt;w4 0x7f008800, 11112222
+J-Link&gt;w1 0x7f008808, 00
+</pre>
+<img = src=../../image/tiny6410_led.png/>
+</body>
+</html>

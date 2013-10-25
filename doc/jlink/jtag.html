@@ -1,0 +1,57 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../css/article.css" type="text/css"/>
+</head>
+
+<body>
+<h1>JTAG	IEEE-1149.7</h1>
+<p>
+This Document based on:
+<a href=http://www.asset-intertech.com/Products/IJTAG-Test/IJTAG-Test-Software/IEEE-1149-7-JTAG-Tutorial-eBook>IEEE JTAG Tutorial</a>
+</p>
+<hr>
+<p>
+<h3>Jtag VS Jlink</h3>
+JTAG是协议描述，JLINK是协议实现。Jlink针对的ARM芯片，还有其他协议实现，针对不同的芯片。
+</p>
+<p>
+<h3>Jtag为什么能测试和调试芯片？</h3>
+Jtag协议有两个版本，IEEE-1149.1和1149.7，后者完全兼容前者。
+1149.1中规定数字集成电路芯片的每个引脚都要设有一个移位寄存单元（TAP），存放引脚电平，这就是JTAG信息的来源！JTAG通过边界扫描得到想要的数据
+芯片内部如果有1149.7中定义的TAP模块（升级版），相当于开了一个后门！通过特定JTAG协议工具可以对芯片读写
+从后面的TAP模块可以看到，JTAG协议能做很多事情，对CPU控制，对FLASH读写。
+所以，如果一个集成电路上有JTAG接口，黑客可以读取很多信息。
+</p>
+<p>
+<h3>What is Bound-Scan?</h3>
+</p>
+<p>
+<h3>TAP, which on-chip for bound-scan, has these classes:</h3>
+</p>
+<table>
+	<tr class=title>
+		<th>Class</th><th>Desc</th>
+	</tr>
+	<tr class=a>
+		<td>T0</td><td>IEEE-1149.1, foundation</td>
+	</tr>
+	<tr class=b>
+		<td>T1</td><td>Commands and registers</td>
+	</tr>
+	<tr class=a>
+		<td>T2</td><td>Scan formats(JScan0-JScan2)</td>
+	</tr>
+	<tr class=b>
+		<td>T3</td><td>Direct addressablitty</td>
+	</tr>
+	<tr class=a>
+		<td>T4</td><td>Packetization of scan data(2-pin scan formats)</td>
+	</tr>
+	<tr class=b>
+		<td>T5</td><td>Transport of non-scan data(2-pin mode)</td>
+	</tr>
+</table>
+<p><h3>JTAG下载原理</h3>
+</p>
+</body>
+</html>
