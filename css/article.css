@@ -30,3 +30,24 @@ table tr.a{
 table tr.b{
 	background-color:#222222;
 }
+
+pre.source{
+	font-family: Verdana;
+	font-size: 14;
+	background-color: #555555;
+	/* solid must be added if you need a rect around */
+	border: 1px solid #888888;
+	padding-left: 40px;
+	/* word-wrap: break-word may be added here */
+}
+
+pre.source ol{
+	color: #DDDDDD;
+	padding: 5;
+	margin: 0;
+	background-color: #333333;
+}
+
+pre.source li:hover{
+	background-color: #;
+}
