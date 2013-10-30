@@ -1,0 +1,62 @@
+<html>
+<head>
+<link rel="stylesheet" href="../css/article.css" type="text/css" />
+<script language="javascript" src="../js/presource.js"></script>
+</head>
+
+<body>
+<h1>LCD show is always a very wonderful job</h1>
+<hr>
+<pre class="source">
+# lcd backlight on-off
+w4 0x7f008080, 0x00011111
+w4 0x7f008084, 0x00000001
+w4 0x7f008088, 0x00000000
+
+# lcd backlight dimming
+w4 0x7f0080a0, 0x96aaaaaa
+w4 0x7f0080a4, 0x00002000
+w4 0x7f0080a8, 0x00000000
+
+# set VD0-VD23 = GPI(0,15),GPJ(0,7) output dir
+w4 0x7f008100, 0xaaaaaaaa
+w4 0x7f008108, 0x00000000
+w4 0x7f008120, 0x00aaaaaa
+w4 0x7f008128, 0x00000000
+
+# special port configure! 
+# 1. select RGB interface : 01
+# 2. in normal display mode, SEL_BYPASS @ MIFPCON must be set 0
+w1 0x7f0081a3, 0x01
+w1 0x7410800f, 0x00
+
+# now gpio has been serve for LCD module
+# and we do LCD module configure
+	# Display Controller Configure
+		# VIDCON0: set clock and format: rgb, clock=9, clk_dir=1, 
+		# VIDCON1: get data @ VCLK rising
+	# Video Time Control - keep and send signal at correct time
+w4 0x77100000, 0x00000250
+w4 0x77100004, 0x00000080
+
+w4 0x77100010, 0x00030202
+w4 0x77100014, 0x002d0406
+w4 0x77100018, 0x000ef90f
+
+# set window 0 - buffer 0
+# set window 0 format 8BPP(Bits Per Pixel), you can set 1BPP for test
+w4 0x77100020, 0x0000000c
+# set window 0 position
+w4 0x77100040, 0x00000000 # left-top coordinate is (0, 0)
+w4 0x77100044, 0x000ef90f # right-bottom coordinate is (271, 479)
+w4 0x77100048, 0x0001fe00 # size = 272 * 478
+# set window 0 buffer(swap mode) address and size
+w4 0x771000a0, 0x0c000000 # use SRAM for buffer 0
+w4 0x771000a4, 0x0c000000 # use SRAM for buffer 1
+w4 0x77100100, 0x000001e0
+
+w4 0x77100000, 0x00000253
+w4 0x77100020, 0x0000000d
+</pre>
+</body>
+</html>
